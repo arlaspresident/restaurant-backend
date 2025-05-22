@@ -14,6 +14,9 @@ app.use(express.json());
 const testRoutes = require('./routes/testRoutes');
 app.use('/api', testRoutes);
 
+const menuRoutes = require('./routes/menuRoutes');
+app.use('/api/menu', menuRoutes);
+
 connectDB();
 
 //starta servern
