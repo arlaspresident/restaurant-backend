@@ -3,7 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const connectDB = require('./db');
 
-
+connectDB();
 const app = express();
 
 //middleware
@@ -20,7 +20,8 @@ app.use('/api/menu', menuRoutes);
 const bookingRoutes = require('./routes/bookingRoutes');
 app.use('/api/bookings', bookingRoutes);
 
-connectDB();
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
 
 //starta servern
 const PORT = process.env.PORT || 3000;
