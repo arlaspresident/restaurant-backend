@@ -20,3 +20,26 @@ exports.addMenuItem = async (req, res) => {
     res.status(400).json({ error: 'Ogiltig data' });
   }
 };
+
+// put, uppdatera menyobjekt
+exports.updateMenuItem = async (req, res) => {
+    try {
+      const updatedItem = await MenuItem.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      if (!updatedItem) return res.status(404).json({ error: 'Rätt hittades inte' });
+      res.json(updatedItem);
+    } catch (err) {
+      res.status(400).json({ error: 'Fel vid uppdatering' });
+    }
+  };
+  
+  // delete, ta bort menyobjekt
+  exports.deleteMenuItem = async (req, res) => {
+    try {
+      const deletedItem = await MenuItem.findByIdAndDelete(req.params.id);
+      if (!deletedItem) return res.status(404).json({ error: 'Rätt hittades inte' });
+      res.json({ message: 'Rätt borttagen' });
+    } catch (err) {
+      res.status(400).json({ error: 'Fel vid borttagning' });
+    }
+  };
+  

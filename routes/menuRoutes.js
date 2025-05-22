@@ -8,4 +8,7 @@ router.get('/', menuController.getMenu);
 // post /api/menu
 router.post('/', menuController.addMenuItem);
 
+router.put('/:id', menuController.updateMenuItem);
+router.delete('/:id', menuController.deleteMenuItem);
+
 module.exports = router;
