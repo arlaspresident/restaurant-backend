@@ -17,6 +17,9 @@ app.use('/api', testRoutes);
 const menuRoutes = require('./routes/menuRoutes');
 app.use('/api/menu', menuRoutes);
 
+const bookingRoutes = require('./routes/bookingRoutes');
+app.use('/api/bookings', bookingRoutes);
+
 connectDB();
 
 //starta servern
