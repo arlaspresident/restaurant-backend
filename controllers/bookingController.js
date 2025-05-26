@@ -20,3 +20,14 @@ exports.getBookings = async (req, res) => {
     res.status(500).json({ error: 'Fel vid hämtning' });
   }
 };
+
+exports.deleteBooking = async (req, res) => {
+    try {
+      const deleted = await Booking.findByIdAndDelete(req.params.id);
+      if (!deleted) return res.status(404).json({ error: 'Bokning hittades inte' });
+      res.json({ message: 'Bokning borttagen' });
+    } catch (err) {
+      res.status(400).json({ error: 'Fel vid borttagning' });
+    }
+  };
+  
