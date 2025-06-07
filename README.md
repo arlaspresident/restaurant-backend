@@ -21,7 +21,7 @@ inloggning för admin, returnerar jwt token
 
 ```json
 {
-  "username": "admin123",
+  "username": "admin",
   "password": "hemligt123"
 }
 ```
